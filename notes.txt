@@ -1,0 +1,19 @@
+RAILS
+
+require "webrick"
+
+server = WEBrick::HTTPServer.new(Port: 8001)
+trap("INT") { server.shutdown } #ctrl-C
+
+server.mount_proc "/" do |req, res| #request and response
+  #discarding request
+  rs.body = "Hello, world"
+end
+
+server.start
+
+cookie takes a string as the second argument. we can build a hash and serialize it to_json
+when we read the cookies from the request, use JSON to parse
+
+Ruby uses instance_eval for building domain-specific languages (DSL)
+

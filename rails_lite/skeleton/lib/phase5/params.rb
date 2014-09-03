@@ -16,6 +16,10 @@ module Phase5
       else
         @params = @route_params
       end
+
+      if req.body
+        @params = @params.merge(parse_www_encoded_form(req.body))
+      end
     end
 
     def [](key)

@@ -6,5 +6,18 @@ module Phase6
     def invoke_action(name)
       self.send(name)
     end
+
+    def link_to(name, url, options = {})
+      options[:method] = :get if options.empty?
+      html = "<a href='#{url}' method='#{options[:method]}'>#{name}</a>"
+      html
+    end
+
+    def button_to(name, url, options = {})
+      options[:method] = :get if options.empty?
+      html = "<form action='#{url}' method='#{options[:method]}'>
+      <input type='submit' value='#{name}'></form>"
+      html
+    end
   end
 end
